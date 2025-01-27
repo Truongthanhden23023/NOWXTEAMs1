@@ -3,22 +3,24 @@ local player = game.Players.LocalPlayer
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = player:WaitForChild("PlayerGui")
 
+-- Tạo khung chứa menu
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0, 300, 0, 200)
 frame.Position = UDim2.new(0, 100, 0, 100)
-frame.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+frame.BackgroundColor3 = Color3.fromRGB(200, 200, 200)  -- Màu nền cho khung
 frame.Parent = screenGui
 
 -- Thêm TextLabel cho tên menu
 local menuTitle = Instance.new("TextLabel")
-menuTitle.Text = "Google make By NOW X TEAMS"  -- Tên menu
+menuTitle.Text = "My Browser Menu"  -- Tên menu
 menuTitle.Size = UDim2.new(0, 300, 0, 30)
-menuTitle.BackgroundColor3 = Color3.fromRGB(0, 128, 255)
+menuTitle.BackgroundColor3 = Color3.fromRGB(0, 128, 255)  -- Màu nền tiêu đề
 menuTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
 menuTitle.TextScaled = true
 menuTitle.TextAlign = Enum.TextAnchor.MiddleCenter
 menuTitle.Parent = frame
 
+-- Tạo nút "Go to Google"
 local browserButton = Instance.new("TextButton")
 browserButton.Text = "Go to Google"
 browserButton.Size = UDim2.new(0, 300, 0, 40)
@@ -28,6 +30,7 @@ browserButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 browserButton.TextScaled = true
 browserButton.Parent = frame
 
+-- Tạo ô nhập tìm kiếm
 local searchBox = Instance.new("TextBox")
 searchBox.Size = UDim2.new(0, 300, 0, 40)
 searchBox.Position = UDim2.new(0, 0, 0, 80)
@@ -45,7 +48,7 @@ end)
 -- Tạo khả năng di chuyển UI với cảm ứng
 local UserInputService = game:GetService("UserInputService")
 local dragging = false
-local dragInput, dragStart, startPos
+local dragStart, startPos
 
 frame.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.Touch then
